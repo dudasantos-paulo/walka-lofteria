@@ -1,0 +1,58 @@
+/* Paleta Walk'a */
+.color-violeta-principal { background-color: #9500C3; }
+.text-violeta-principal { color: #9500C3; }
+.border-violeta-principal { border-color: #9500C3; }
+.color-ciano-destaque { background-color: #10E6E1; }
+.hover-ciano-destaque:hover { background-color: #0bd1cb; }
+.color-vermelho-indiano { background-color: #E5615C; }
+
+body {
+    font-family: 'Poppins', sans-serif;
+    /* Roxo mais escuro e intenso, similar ao BG do protótipo Figma */
+    background-color: #6E00B0; 
+    padding: 2rem;
+    min-height: 100vh;
+    /* Fundo com sutil pattern para melhor efeito Liquid Glass */
+    background-image: radial-gradient(circle at 100% 100%, rgba(255,255,255,.15) 1%, transparent 12%), 
+                      radial-gradient(circle at 0% 0%, rgba(255,255,255,.15) 1%, transparent 12%);
+}
+
+/* Efeito Liquid Glass para o Container Principal */
+.glass-container {
+    background-color: rgba(255, 255, 255, 0.25); /* Mais transparente que antes (0.75) */
+    backdrop-filter: blur(18px); /* Aumenta o desfoque */
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.5); /* Borda mais visível e clara */
+    box-shadow: 0 12px 48px 0 rgba(0, 0, 0, 0.3); /* Sombra mais profunda */
+}
+
+/* Blocos de seção internos (cartões) */
+.glass-block {
+    background-color: rgba(255, 255, 255, 0.95); /* Fundo mais opaco para legibilidade interna */
+    border: 1px solid rgba(149, 0, 195, 0.1);
+}
+
+/* Estilo para inputs de texto e textarea - Bordas mais arredondadas */
+.form-input {
+    border-radius: 12px; /* Aumenta o arredondamento */
+    padding: 12px 16px;
+    border: 1px solid #d1d5db;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    background-color: #ffffff;
+}
+.form-input:focus {
+    border-color: #9500C3;
+    box-shadow: 0 0 0 4px rgba(149, 0, 195, 0.3);
+    background-color: #ffffff;
+    outline: none;
+}
+
+.btn-add {
+    transition: background-color 0.2s;
+}
+
+/* Estilo para o cabeçalho sem fundo */
+.header-text {
+    /* Removendo o destaque de fundo do texto, apenas shadow sutil */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}

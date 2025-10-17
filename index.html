@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário Walk'a - Configuração de Hotsite</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="p-4 sm:p-8">
+
+    <div class="max-w-4xl mx-auto glass-container rounded-2xl p-6 sm:p-10">
+        <header class="mb-10 text-center">
+            <h1 class="text-4xl font-bold mb-2 text-white header-text">Formulário Walk'a</h1>
+            <p class="text-white header-text">Preencha os detalhes para gerar o novo hotsite de empreendimento.</p>
+        </header>
+
+        <form id="walkaForm" class="space-y-10">
+
+            <div class="p-6 border-violeta-principal/30 rounded-2xl glass-block">
+                <h2 class="text-2xl font-semibold mb-6 pb-2 border-b-2 border-violeta-principal text-violeta-principal">
+                    1. Identificação do Empreendimento
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="nomeEmpreendimento" class="block text-sm font-medium text-gray-700 mb-1">Nome do empreendimento</label>
+                        <input type="text" name="nomeEmpreendimento" id="nomeEmpreendimento" placeholder="Ex: AMS Córrego Grande" class="form-input w-full" required>
+                    </div>
+                    <div>
+                        <label for="slugUrl" class="block text-sm font-medium text-gray-700 mb-1">Slug (URL) - *sem espaços ou acentos*</label>
+                        <input type="text" name="slugUrl" id="slugUrl" placeholder="Ex: ams-corrego-grande" class="form-input w-full" required>
+                    </div>
+                    <div>
+                        <label for="construtora" class="block text-sm font-medium text-gray-700 mb-1">Construtora / Incorporadora</label>
+                        <input type="text" name="construtora" id="construtora" placeholder="Ex: AMS Empreendimentos" class="form-input w-full" required>
+                    </div>
+                    <div>
+                        <label for="cidadeEstado" class="block text-sm font-medium text-gray-700 mb-1">Cidade / Estado</label>
+                        <input type="text" name="cidadeEstado" id="cidadeEstado" placeholder="Ex: Florianópolis / SC" class="form-input w-full" required>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label for="linkMapsEmbed" class="block text-sm font-medium text-gray-700 mb-1">Link do Google Maps (Embed Code ou URL)</label>
+                        <textarea name="linkMapsEmbed" id="linkMapsEmbed" rows="3" placeholder="Insira o código completo do embed ou o link padrão" class="form-input w-full"></textarea>
+                    </div>
+                    <div>
+                        <label for="contatoWhatsApp" class="block text-sm font-medium text-gray-700 mb-1">Contato WhatsApp</label>
+                        <input type="url" name="contatoWhatsApp" id="contatoWhatsApp" placeholder="Ex: https://wa.me/5548991457597" class="form-input w-full" required>
+                    </div>
+                    <div>
+                        <label for="emailComercial" class="block text-sm font-medium text-gray-700 mb-1">E-mail Comercial (opcional)</label>
+                        <input type="email" name="emailComercial" id="emailComercial" placeholder="Ex: contato@empresa.com" class="form-input w-full">
+                    </div>
+                    <div>
+                        <label for="corPrimaria" class="block text-sm font-medium text-gray-700 mb-1">Cor Primária da Marca (Hex)</label>
+                        <input type="text" name="corPrimaria" id="corPrimaria" placeholder="Ex: #F47B6B" class="form-input w-full">
+                    </div>
+                    <div>
+                        <label for="logoMarcaUrl" class="block text-sm font-medium text-gray-700 mb-1">Logo da marca (URL)</label>
+                        <input type="url" name="logoMarcaUrl" id="logoMarcaUrl" placeholder="Insira a URL do logo (JPG, PNG, SVG)" class="form-input w-full">
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-6 border-violeta-principal/30 rounded-2xl glass-block">
+                <h2 class="text-2xl font-semibold mb-6 pb-2 border-b-2 border-violeta-principal text-violeta-principal">
+                    2. Hero (Topo do Hotsite)
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="md:col-span-2">
+                        <label for="heroHeadline" class="block text-sm font-medium text-gray-700 mb-1">Título principal (Headline)</label>
+                        <textarea name="heroHeadline" id="heroHeadline" rows="2" placeholder="Ex: O novo capítulo da AMS no Córrego Grande" class="form-input w-full"></textarea>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label for="heroSubheadline" class="block text-sm font-medium text-gray-700 mb-1">Subtítulo (Subheadline)</label>
+                        <textarea name="heroSubheadline" id="heroSubheadline" rows="3" placeholder="Ex: Formato inédito para morar ou investir..." class="form-input w-full"></textarea>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label for="heroImagemUrl" class="block text-sm font-medium text-gray-700 mb-1">Imagem principal do Hero (URL)</label>
+                        <input type="url" name="heroImagemUrl" id="heroImagemUrl" placeholder="Insira a URL da imagem de fundo (1920x1080)" class="form-input w-full">
+                    </div>
+                    <div>
+                        <label for="entregaPrevista" class="block text-sm font-medium text-gray-700 mb-1">Entrega prevista</label>
+                        <input type="text" name="entregaPrevista" id="entregaPrevista" placeholder="Ex: Dezembro/2029" class="form-input w-full">
+                    </div>
+                    <div>
+                        <label for="lancamento" class="block text-sm font-medium text-gray-700 mb-1">Lançamento</label>
+                        <input type="text" name="lancamento" id="lancamento" placeholder="Ex: Dezembro/2025" class="form-input w-full">
+                    </div>
+                    <div>
+                        <label for="metragens" class="block text-sm font-medium text-gray-700 mb-1">Metragens</label>
+                        <input type="text" name="metragens" id="metragens" placeholder="Ex: 20m² a 40m²" class="form-input w-full">
+                    </div>
+                    <div>
+                        <label for="tipologias" class="block text-sm font-medium text-gray-700 mb-1">Tipologias</label>
+                        <input type="text" name="tipologias" id="tipologias" placeholder="Ex: Studio, 1 e 2 quartos" class="form-input w-full">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label for="linkBotaoCta" class="block text-sm font-medium text-gray-700 mb-1">Link do botão principal (CTA)</label>
+                        <input type="text" name="linkBotaoCta" id="linkBotaoCta" placeholder="Ex: #tours ou link externo" class="form-input w-full">
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-6 border-violeta-principal/30 rounded-2xl glass-block">
+                <h2 class="text-2xl font-semibold mb-6 pb-2 border-b-2 border-violeta-principal text-violeta-principal">
+                    3. Localização
+                </h2>
+                
+                <div class="grid md:grid-cols-1 gap-6">
+                    <div>
+                        <label for="localizacaoDescricao" class="block text-sm font-medium text-gray-700 mb-1">Descrição da localização</label>
+                        <textarea name="localizacaoDescricao" id="localizacaoDescricao" rows="3" placeholder="Ex: Conheça mais sobre a localização..." class="form-input w-full"></textarea>
+                    </div>
+                    <div>
+                        <label for="pontosInteresse" class="block text-sm font-medium text-gray-700 mb-1">Pontos de interesse (1 item por linha)</label>
+                        <textarea name="pontosInteresse" id="pontosInteresse" rows="4" placeholder="Ex:&#10;Perto de Shoppings e Supermercados&#10;5 min do Parque Municipal" class="form-input w-full"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-6 border-violeta-principal/30 rounded-2xl glass-block">
+                <h2 class="text-2xl font-semibold mb-6 pb-2 border-b-2 border-violeta-principal text-violeta-principal">
+                    4. Galeria
+                </h2>
+                
+                <label for="galeriaImagensUrls" class="block text-sm font-medium text-gray-700 mb-1">Imagens da galeria (URLs, separadas por vírgula)</label>
+                <textarea name="galeriaImagensUrls" id="galeriaImagensUrls" rows="5" placeholder="Insira as URLs das imagens de alta resolução (separadas por vírgula)" class="form-input w-full"></textarea>
+            </div>
+
+            <div class="p-6 border-violeta-principal/30 rounded-2xl glass-block">
+                <h2 class="text-2xl font-semibold mb-6 pb-2 border-b-2 border-violeta-principal text-violeta-principal">
+                    5. Plantas (Dinâmico)
+                </h2>
+                
+                <div id="plantas-container" class="space-y-4 mb-6">
+                    </div>
+                
+                <button type="button" id="addPlantaBtn" class="w-full py-2 rounded-xl font-semibold color-ciano-destaque hover-ciano-destaque btn-add text-gray-900">
+                    + Adicionar Planta
+                </button>
+
+                <div class="mt-6 pt-4 border-t">
+                    <label for="disponibilidade" class="block text-sm font-medium text-gray-700 mb-1">Disponibilidade</label>
+                    <input type="text" name="disponibilidade" id="disponibilidade" placeholder="Ex: Apenas 1 unidade disponível" class="form-input w-full">
+                </div>
+            </div>
+            
+            <div class="p-6 border-violeta-principal/30 rounded-2xl glass-block">
+                <h2 class="text-2xl font-semibold mb-6 pb-2 border-b-2 border-violeta-principal text-violeta-principal">
+                    6. Tours 360 (Dinâmico)
+                </h2>
+                <p class="text-sm text-gray-600 mb-4">Adicione o link e o rótulo para cada tour 360 disponível.</p>
+                
+                <div id="tours-container" class="space-y-4 mb-6">
+                    </div>
+                
+                <button type="button" id="addTourBtn" class="w-full py-2 rounded-xl font-semibold color-ciano-destaque hover-ciano-destaque btn-add text-gray-900">
+                    + Adicionar Tour 360
+                </button>
+            </div>
+
+            <div class="p-6 border-violeta-principal/30 rounded-2xl glass-block">
+                <h2 class="text-2xl font-semibold mb-6 pb-2 border-b-2 border-violeta-principal text-violeta-principal">
+                    7. Ficha Técnica
+                </h2>
+                
+                <label for="fichaTecnicaItens" class="block text-sm font-medium text-gray-700 mb-1">Ficha técnica (Pares Label: Valor, 1 par por linha)</label>
+                <textarea name="fichaTecnicaItens" id="fichaTecnicaItens" rows="5" placeholder="Ex:&#10;Área construída total: 10.000m² de área construída&#10;Total de apartamentos: 294 apartamentos&#10;Número de elevadores: 2 elevadores" class="form-input w-full"></textarea>
+            </div>
+
+            <div class="p-6 border-violeta-principal/30 rounded-2xl glass-block">
+                <h2 class="text-2xl font-semibold mb-6 pb-2 border-b-2 border-violeta-principal text-violeta-principal">
+                    8. Preços / Pacotes (Dinâmico)
+                </h2>
+                <p class="text-sm text-gray-600 mb-6">Adicione quantos pacotes de preço forem necessários.</p>
+
+                <div id="precos-container" class="grid lg:grid-cols-2 gap-6 mb-6">
+                    </div>
+
+                <button type="button" id="addPrecoBtn" class="w-full py-2 rounded-xl font-semibold color-ciano-destaque hover-ciano-destaque btn-add text-gray-900">
+                    + Adicionar Pacote de Preço
+                </button>
+            </div>
+
+            <div class="p-6 border-violeta-principal/30 rounded-2xl glass-block">
+                <h2 class="text-2xl font-semibold mb-6 pb-2 border-b-2 border-violeta-principal text-violeta-principal">
+                    9. Perguntas Frequentes (FAQ)
+                </h2>
+                <p class="text-sm text-gray-600 mb-6">Adicione e remova pares de Pergunta e Resposta.</p>
+                
+                <div id="faq-container" class="space-y-4 mb-6">
+                    </div>
+                
+                <button type="button" id="addFaqBtn" class="w-full py-2 rounded-xl font-semibold color-ciano-destaque hover-ciano-destaque btn-add text-gray-900">
+                    + Adicionar Pergunta
+                </button>
+            </div>
+
+            <div class="p-6 border-violeta-principal/30 rounded-2xl glass-block">
+                <h2 class="text-2xl font-semibold mb-6 pb-2 border-b-2 border-violeta-principal text-violeta-principal">
+                    10. SEO e Configurações
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="seoTitulo" class="block text-sm font-medium text-gray-700 mb-1">Título SEO (meta title)</label>
+                        <input type="text" name="seoTitulo" id="seoTitulo" placeholder="Ex: AMS Córrego Grande — Walk’a" class="form-input w-full">
+                    </div>
+                    <div>
+                        <label for="seoImagemUrl" class="block text-sm font-medium text-gray-700 mb-1">Imagem SEO (Preview URL)</label>
+                        <input type="url" name="seoImagemUrl" id="seoImagemUrl" placeholder="URL da imagem de preview (1200x1200)" class="form-input w-full">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label for="seoDescricao" class="block text-sm font-medium text-gray-700 mb-1">Descrição SEO (meta description)</label>
+                        <textarea name="seoDescricao" id="seoDescricao" rows="2" placeholder="Ex: Studios mobiliados em Florianópolis com design moderno e funcional." class="form-input w-full"></textarea>
+                    </div>
+                    <div>
+                        <label for="statusHotsite" class="block text-sm font-medium text-gray-700 mb-1">Status do Hotsite</label>
+                        <select name="statusHotsite" id="statusHotsite" class="form-input w-full">
+                            <option value="Rascunho">Rascunho</option>
+                            <option value="Publicado">Publicado</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-6">
+                <button type="submit" class="w-full py-3 text-lg font-bold rounded-2xl text-gray-900 color-ciano-destaque hover-ciano-destaque transition shadow-lg hover:shadow-xl">
+                    Gerar Dados para Hotsite
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <script src="js/script.js" defer></script>
+</body>
+</html>
