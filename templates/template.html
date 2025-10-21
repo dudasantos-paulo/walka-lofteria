@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-br" data-project="{{SLUG_URL}}">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>{{SEO_TITULO}}</title>
+  <meta name="description" content="{{SEO_DESCRICAO}}" />
+  <meta name="theme-color" content="{{COR_PRIMARIA}}" />
+
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/styles-ams.css" />
+  <link rel="stylesheet" href="css/ams-corrego-grande.webflow.css" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+  <link rel="shortcut icon" href="images/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="images/webclip.png" />
+
+  <meta property="og:title" content="{{SEO_TITULO}}" />
+  <meta property="og:description" content="{{SEO_DESCRICAO}}" />
+  <meta property="og:image" content="{{SEO_IMAGEM_URL}}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="{{OG_URL}}" /> <meta name="author" content="{{CONSTRUTORA}}" />
+  <meta name="robots" content="index, follow" />
+
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+  <script>
+    WebFont.load({
+      google: { families: ["Poppins:400,500,600,700"] },
+    });
+  </script>
+</head>
+<body>
+  <div id="top"></div>
+
+  <header class="site-header container">
+    <div class="brand">
+      <img src="{{LOGO_MARCA_URL}}" alt="{{NOME_EMPREENDIMENTO}}" class="brand-logo" />
+      <span class="brand-name">{{NOME_EMPREENDIMENTO}}</span>
+    </div>
+    <nav class="nav">
+      <a href="#section-local">Sobre o Local</a>
+      <a href="#section-galeria">Galeria</a>
+      <a href="#section-plantas">Plantas</a>
+      <a href="#tours">Tour 360</a>
+      <a href="#section-ficha-tecnica">Ficha Técnica</a>
+      <a href="#section-price">Preços</a>
+      <a href="#section-faq">FAQ</a>
+    </nav>
+  </header>
+
+  <section class="hero hero-cover" style="background-image: url('{{HERO_IMAGEM_URL}}');">
+    <div class="hero-overlay"></div>
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <h1 class="title">{{HERO_HEADLINE}}</h1>
+        <p class="subtitle">{{HERO_SUBHEADLINE}}</p>
+        <ul class="badges">
+          <li><img width="20" alt="chave" src="images/icon-chave.svg" class="img-icon-entrega" /> Entrega prevista: <strong>{{ENTREGA_PREVISTA}}</strong></li>
+          <li><img width="20" alt="calendario" src="images/icon-calendario.svg" class="img-icon-entrega" />Lançamento: <strong>{{LANCAMENTO}}</strong></li>
+          <li><img width="20" alt="regua" src="images/icon-regua.svg" class="img-icon-entrega" />Metragens: <strong>{{METRAGENS}}</strong></li>
+          <li><img width="20" alt="cama" src="images/icon-cama.svg" class="img-icon-entrega" />Tipologias: <strong>{{TIPOLOGIAS}}</strong></li>
+          <a class="btn cta" href="{{LINK_BOTAO_CTA}}">Ver Tours 360</a>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="section-local" class="section-local">
+    <div id="container-local" class="w-layout-blockcontainer container w-container">
+      <div id="div-local" class="div-local">
+        <div id="div-txt-local" class="div-txt-local">
+          <div id="div-txt-h2-local" class="div-txt-h2">
+            <h2 id="h2-local" class="h2">Conheça mais sobre a localização</h2>
+          </div>
+          <div id="div-txt-h3-local" class="div-txt-h4">
+            <h3 id="h4-local" class="h4">{{LOCALIZACAO_DESCRICAO}}</h3>
+          </div>
+          
+          {{PONTOS_INTERESSE_HTML}}
+          
+        </div>
+        <div id="div-maps" class="div-maps">
+          <aside class="aside">
+            <div class="map-embed">
+              <iframe title="Mapa do empreendimento" loading="lazy" src="{{LINK_MAPS_SRC}}"></iframe>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="section-galeria" class="section-galeria">
+    <div id="container-galeria" class="w-layout-blockcontainer container container-galeria w-container">
+      <div id="div-galeria" class="div-galeria">
+        <div id="div-txt-h2-galeria" class="div-txt-h2">
+          <h2 id="h2-galeria" class="h2">Imagens do {{NOME_EMPREENDIMENTO}}</h2>
+        </div>
+        <div id="div-galeria-imgs" class="div-galeria-imgs">
+          <img width="30" loading="lazy" alt="" src="https://lofteria.com.br/walka-demo-images/galeria/icon-seta-esquerda.png" class="gallery-arrow-left">
+          <img width="30" loading="lazy" alt="" src="https://lofteria.com.br/walka-demo-images/galeria/icon-seta-direita.png" class="gallery-arrow-right">
+          <div class="galeria">
+            <div class="code-embed-2 w-embed w-script">
+              <body>
+                <div class="main-gallery-container">
+                  <div class="horizontal-scroll-container">
+                    <div class="image-gallery-container">
+                      
+                      {{GALERIA_IMAGENS_HTML}}
+
+                    </div>
+                  </div>
+                </div>
+                <div id="image-modal" class="image-modal">
+                  <span class="close-modal">×</span>
+                  <img class="modal-image-content" id="modal-image">
+                  <img src="https://lofteria.com.br/walka-demo-images/galeria/icon-seta-esquerda.png" class="modal-arrow modal-arrow-left" alt="Left Arrow">
+                  <img src="https://lofteria.com.br/walka-demo-images/galeria/icon-seta-direita.png" class="modal-arrow modal-arrow-right" alt="Right Arrow">
+                </div>
+                <script src="script.js"></script>
+              </body>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="section-plantas" class="section section-plantas">
+    <div class="container grid-2 plantas-grid">
+      <div class="plantas-left">
+        <h2 class="h2">Plantas — Studio</h2>
+        <div class="tabs style-tabs">
+          <button class="btn is-active" data-style="eco">ECO</button>
+          <button class="btn" data-style="slim">SLIM</button>
+          <button class="btn" data-style="urban">URBAN</button>
+        </div>
+        <div class="tabs package-tabs">
+          <button class="btn pkg is-active" data-package="standard">Standard</button>
+          <button class="btn pkg" data-package="basic">Basic</button>
+          <button class="btn pkg" data-package="essential">Essential</button>
+          <button class="btn pkg" data-package="design">Design</button>
+        </div>
+        <div class="planta-imagem-wrap">
+          <img id="planta-img" src="images/studio-eco-standard.jpg" alt="Planta" />
+        </div>
+      </div>
+      <div class="planta-card">
+        <h3 class="h3" id="planta-nome">Studio Standard — Eco</h3>
+        <p class="planta-disponibilidade"><span>🔥</span> {{DISPONIBILIDADE}}</p>
+        <button
+        type="button"
+        class="btn ghost btn-agendar"
+        onclick="window.open('{{CONTATO_WHATSAPP}}', '_blank');">
+        📅 Agende sua visita
+        </button>
+        <h4 class="h4">Características</h4>
+        <p id="planta-desc" class="planta-desc">
+          Studio Standard - Imóvel entregue padrão
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="tours" class="container section">
+    <h2 class="h2">Tour 360 por estilo</h2>
+    
+    {{TOURS_360_HTML}}
+
+  </section>
+
+  <section id="section-ficha-tecnica" class="section-ficha-tecnica">
+    <div id="container-ficha-tecnica" class="w-layout-blockcontainer container w-container">
+      <div id="div-ficha-tecnica" class="div-ficha-tecnica">
+        <div id="div-txt-ficha" class="div-txt-ficha">
+          <div id="div-txt-h2-ficha" class="div-txt-h2">
+            <h2 id="h2-ficha" class="h2">Ficha técnica do empreendimento</h2>
+          </div>
+          
+          <div id="div-detalhes-ficha" class="div-detalhes">
+            {{FICHA_TECNICA_HTML}}
+          </div>
+          
+        </div>
+        <div id="div-img-ficha" class="div-img-ficha"><img width="291" alt="" src="images/6.png" loading="lazy" id="img-ficha-tecnica" class="img-ficha-tecnica"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="section-price" class="section-price">
+    <div id="container-price" class="w-layout-blockcontainer container w-container">
+      <div id="div-prices" class="div-prices">
+        <div id="div-txt-h2-price" class="div-txt-h2 h2-preco">
+          <h2 id="h2-price" class="h2 h2-preco">Invista em um studio mobiliado</h2>
+        </div>
+        
+        <div id="div-tabelas" class="div-tabelas">
+          {{PRECOS_HTML}}
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <section id="section-faq" class="section-faq">
+    <div id="container-faq" class="w-layout-blockcontainer container w-container">
+      <div id="div-faq" class="div-faq">
+        <div id="div-txt-h2-faq" class="div-txt-h2">
+          <h2 id="h2-faq" class="h2">Dúvidas frequentes</h2>
+        </div>
+        <div class="code-embed-3 w-embed w-script">
+          <!DOCTYPE html>
+          <html lang="en">
+          <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>FAQ Acordeão</title>
+            </head>
+          <body>
+          
+            {{FAQ_HTML}}
+            
+            <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var acc = document.querySelectorAll(".custom-accordion");
+      acc.forEach(function(item) {
+        item.addEventListener("click", function() {
+          this.classList.toggle("active");
+          var panel = this.nextElementSibling;
+          if (panel.style.maxHeight) {
+            panel.style.maxHeight = null;
+          } else {
+            panel.style.maxHeight = panel.scrollHeight + "px";
+          }
+        });
+      });
+    });
+  </script>
+          </body>
+          </html>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="footer" class="footer">
+    <div id="container-footer" class="w-layout-blockcontainer container w-container">
+      <div id="div-footer" class="div-footer">
+        <div id="div-logo-footer" class="div-logo"><img width="116" alt="{{NOME_EMPREENDIMENTO}}" src="{{LOGO_MARCA_URL}}" loading="lazy" id="img-logo-footer" class="logo"></div>
+        <div id="div-fale-com-vendas" class="div-fale-com-vendas">
+          <div id="div-txt-h5-footer" class="div-txt-h5">
+            <h3 id="h5-footer" class="h5 h5-footer">Fale com o time de vendas!</h3>
+          </div>
+          <div id="div-icon-footer" class="div-icon-txt icon-txt-footer"><img width="15" id="img-icon-check" alt="" src="images/icon-whats.svg" loading="lazy" class="img-icon-whats">
+            <h4 id="h4-footer-telefone" href="{{CONTATO_WHATSAPP}}" class="h4 h4-footer">{{TELEFONE_WHATSAPP}}</h4>
+          </div>
+        </div>
+          <div id="div-txt-h5-ficha" class="div-txt-h5">
+            <h5 id="h5-ficha-area" class="h5 h5-footer">{{ENDERECO_COMPLETO}}</h5>
+          </div>
+        </div>
+      </div>
+      <div class="div-copyright">
+        <div id="div-txt-h5-footer" class="div-txt-h5">
+          <h3 id="h5-footer" class="h5 h5-copyright">Copyright © 2024 {{NOME_EMPREENDIMENTO}} | All Rights Reserved | <a href="#" class="link">Política de Privacidade</a>
+          </h3>
+        </div>
+      </div>
+    </div>
+    <a id="button-topo" href="#top" class="button bt-back-top w-button"> </a>
+  </section>
+
+  <script src="js/script-ams.js" defer></script>
+</body>
+</html>

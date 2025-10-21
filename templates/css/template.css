@@ -1,0 +1,55 @@
+/* ========================================================================= */
+/* ESTILOS PADRONIZADOS                           */
+/* ========================================================================= */
+
+/* ---------- Tokens de tema (modo clean) ---------- */
+:root {
+  --bg: #f4f4f4;
+  --text: #1d242b;
+  --muted: #65707a;
+  
+  /* O PYTHON VAI SUBSTITUIR ESTA COR */
+  --brand: {{COR_PRIMARIA}}; /* ex: #f47b6b; */
+
+  --brand-2: #152328; /* azul bem escuro para títulos/contraste */
+  --container: min(1160px, 92vw);
+  --border: 1px solid rgba(13, 18, 23, .08);
+}
+
+/* ---------- Reset mínimo extra ---------- */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 400 16px/1.6 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans";
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+/* ---------- Layout utilitários ---------- */
+.container {
+  width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gap);
+}
+/* ... (O RESTANTE DO ARQUIVO CSS É IDÊNTICO AO SEU styles-ams.css) ... */
+/* ... (copie e cole todo o resto do seu styles-ams.css aqui) ... */
+
+/* Colar o restante do styles-ams.css aqui */
