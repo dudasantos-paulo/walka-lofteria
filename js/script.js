@@ -14,6 +14,14 @@ document.addEventListener('click', (e) => {
 });
 
 // =================================================================
+// FUNÇÕES DINÂMICAS (Plantas, Tours, Preços, FAQ)
+// ... (Todo o código das funções dinâmicas que já existem)
+// =================================================================
+
+// --- INÍCIO DAS FUNÇÕES DINÂMICAS ---
+// (Certifique-se de que todo o seu código anterior para addPlanta, addTour, addPreco e addFaq esteja aqui)
+
+// =================================================================
 // FUNÇÕES DINÂMICAS: 5. Plantas
 // =================================================================
 let plantaIndex = 0;
@@ -62,12 +70,14 @@ const createPlantaBlock = (index) => {
     `;
 };
 
-const addPlanta = () => {
-    plantasContainer.insertAdjacentHTML('beforeend', createPlantaBlock(plantaIndex));
-    plantaIndex++;
-};
-addPlantaBtn.addEventListener('click', addPlanta);
-addPlanta(); // Adiciona 1 planta inicial
+if (addPlantaBtn) {
+    const addPlanta = () => {
+        plantasContainer.insertAdjacentHTML('beforeend', createPlantaBlock(plantaIndex));
+        plantaIndex++;
+    };
+    addPlantaBtn.addEventListener('click', addPlanta);
+    addPlanta(); // Adiciona 1 planta inicial
+}
 
 // =================================================================
 // FUNÇÕES DINÂMICAS: 6. Tours 360
@@ -96,12 +106,14 @@ const createTourBlock = (index) => {
     `;
 };
 
-const addTour = () => {
-    toursContainer.insertAdjacentHTML('beforeend', createTourBlock(tourIndex));
-    tourIndex++;
-};
-addTourBtn.addEventListener('click', addTour);
-addTour(); // Adiciona 1 tour inicial
+if (addTourBtn) {
+    const addTour = () => {
+        toursContainer.insertAdjacentHTML('beforeend', createTourBlock(tourIndex));
+        tourIndex++;
+    };
+    addTourBtn.addEventListener('click', addTour);
+    addTour(); // Adiciona 1 tour inicial
+}
 
 // =================================================================
 // FUNÇÕES DINÂMICAS: 8. Preços / Pacotes
@@ -127,12 +139,14 @@ const createPrecoBlock = (index) => {
     `;
 };
 
-const addPreco = () => {
-    precosContainer.insertAdjacentHTML('beforeend', createPrecoBlock(precoIndex));
-    precoIndex++;
-};
-addPrecoBtn.addEventListener('click', addPreco);
-addPreco(); // Adiciona 1 pacote inicial
+if (addPrecoBtn) {
+    const addPreco = () => {
+        precosContainer.insertAdjacentHTML('beforeend', createPrecoBlock(precoIndex));
+        precoIndex++;
+    };
+    addPrecoBtn.addEventListener('click', addPreco);
+    addPreco(); // Adiciona 1 pacote inicial
+}
 
 // =================================================================
 // FUNÇÕES DINÂMICAS: 9. Perguntas Frequentes (FAQ)
@@ -155,34 +169,60 @@ const createFaqBlock = (index) => {
     `;
 };
 
-const addFaq = () => {
-    faqContainer.insertAdjacentHTML('beforeend', createFaqBlock(faqIndex));
-    faqIndex++;
-};
-addFaqBtn.addEventListener('click', addFaq);
-addFaq(); // Adiciona 1 FAQ inicial
+if (addFaqBtn) {
+    const addFaq = () => {
+        faqContainer.insertAdjacentHTML('beforeend', createFaqBlock(faqIndex));
+        faqIndex++;
+    };
+    addFaqBtn.addEventListener('click', addFaq);
+    addFaq(); // Adiciona 1 FAQ inicial
+}
+
+// --- FIM DAS FUNÇÕES DINÂMICAS ---
+
 
 // =================================================================
-// FUNÇÃO PRINCIPAL DE SUBMISSÃO
+// FUNÇÃO PRINCIPAL DE SUBMISSÃO (ATUALIZADA)
 // =================================================================
 document.getElementById('walkaForm').addEventListener('submit', function(e) {
     e.preventDefault(); 
     
-    // Lógica de simulação de captura (manter para debug)
-    const formData = new FormData(e.target);
-    const data = Object.fromEntries(formData.entries());
-
-    console.log("--- Dados do Formulário Capturados (Prontos para Automação) ---");
-    console.log(data); // Exibe os dados no console para verificação
-    
     const submitButton = e.target.querySelector('button[type="submit"]');
-    submitButton.textContent = "Dados Capturados! (Ver Console)";
-    submitButton.classList.remove('color-ciano-destaque');
-    submitButton.classList.add('color-vermelho-indiano');
+    const originalText = submitButton.textContent;
+    submitButton.textContent = "Enviando, aguarde...";
+    submitButton.disabled = true;
+
+    // *** SUA URL DE WEBHOOK FOI INSERIDA AQUI ***
+    const webhookURL = 'https://hooks.zapier.com/hooks/catch/14417228/ur9ljc6/';
+
+    const formData = new FormData(e.target);
     
+    // Converte FormData para um formato que o Zapier entende (Query String)
+    const data = new URLSearchParams();
+    for (const pair of formData) {
+        data.append(pair[0], pair[1]);
+    }
+
+    // Envia os dados para o Zapier
+    // Usamos 'sendBeacon' que é mais confiável para enviar dados
+    // sem se preocupar com a página fechando ou mudando
+    const sent = navigator.sendBeacon(webhookURL, data);
+
+    if (sent) {
+        // Sucesso imediato (não garante recebimento, mas garante envio)
+        submitButton.textContent = "Dados Enviados com Sucesso!";
+        submitButton.classList.remove('color-ciano-destaque');
+        submitButton.classList.add('color-vermelho-indiano');
+    } else {
+        // Erro ao tentar enviar
+        submitButton.textContent = "Erro ao enviar. Tente novamente.";
+    }
+
+    // Reseta o botão após 3 segundos
     setTimeout(() => {
-         submitButton.textContent = "Gerar Dados para Hotsite";
+         submitButton.textContent = originalText;
          submitButton.classList.remove('color-vermelho-indiano');
          submitButton.classList.add('color-ciano-destaque');
+         submitButton.disabled = false;
     }, 3000);
 });
