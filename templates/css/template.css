@@ -7,13 +7,23 @@
   --bg: #f4f4f4;
   --text: #1d242b;
   --muted: #65707a;
-  
+
   /* O PYTHON VAI SUBSTITUIR ESTA COR */
   --brand: {{COR_PRIMARIA}}; /* ex: #f47b6b; */
 
   --brand-2: #152328; /* azul bem escuro para títulos/contraste */
   --container: min(1160px, 92vw);
   --border: 1px solid rgba(13, 18, 23, .08);
+  --gap: 20px; /* Adicionado para consistência, ajuste se necessário */
+  --radius: 8px; /* Adicionado para consistência */
+  --shadow: 0 2px 4px rgba(0,0,0,0.05); /* Adicionado para consistência */
+  --surface: #ffffff; /* Adicionado para consistência */
+  --padrão: 'Poppins', sans-serif; /* Adicionado para consistência */
+  --azul: #152328; /* Adicionado para consistência */
+  --cinza-1: #f4f4f4; /* Adicionado para consistência */
+  --branco-lofteria: #ffffff; /* Adicionado para consistência */
+
+
 }
 
 /* ---------- Reset mínimo extra ---------- */
@@ -30,7 +40,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font: 400 16px/1.6 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans";
+  font: 400 16px/1.6 'Poppins', sans-serif, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans";
 }
 
 img {
@@ -41,6 +51,7 @@ img {
 
 a {
   color: inherit;
+  text-decoration: none; /* Adicionado para remover sublinhado padrão */
 }
 
 /* ---------- Layout utilitários ---------- */
@@ -49,7 +60,1320 @@ a {
   margin-inline: auto;
   padding-inline: var(--gap);
 }
-/* ... (O RESTANTE DO ARQUIVO CSS É IDÊNTICO AO SEU styles-ams.css) ... */
-/* ... (copie e cole todo o resto do seu styles-ams.css aqui) ... */
 
-/* Colar o restante do styles-ams.css aqui */
+.section {
+  padding: 60px 0;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: var(--gap);
+}
+
+.cards {
+  display: grid;
+  gap: var(--gap);
+}
+
+.cards-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.cards-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.card {
+  background: var(--surface);
+  border: var(--border);
+  border-radius: var(--radius);
+  padding: clamp(14px, 2.5vw, 24px);
+  box-shadow: var(--shadow);
+}
+
+.link-card {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.link-card:hover {
+  outline: 2px solid var(--brand);
+}
+
+/* ---------- Header ---------- */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand.small .brand-logo {
+  width: 24px;
+}
+
+.brand-logo {
+  width: 36px;
+  height: auto;
+}
+
+.brand-name {
+  color: var(--brand-2);
+  font-weight: 700;
+}
+
+/* ---------- Navegação ---------- */
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.nav a {
+  color: var(--muted);
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 999px;
+}
+
+.nav a:hover {
+  background: rgba(21, 35, 40, .06);
+  color: var(--brand-2);
+}
+
+/* ---------- Hero cover (com background do header) ---------- */
+.hero.hero-cover {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: clamp(320px, 48vw, 560px);
+  /* background: url("../images/hero-bg.jpg") center/cover no-repeat fixed; */ /* Removido para usar inline style */
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  border-bottom: var(--border);
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(26, 25, 25, 0.85);
+}
+
+.hero-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: var(--gap);
+  align-items: center;
+}
+
+.title {
+  color: #fafafa;
+  font-size: clamp(28px, 5vw, 48px);
+  margin: 0 0 8px;
+}
+
+.subtitle {
+  color: #9199a2;
+  margin: 0 0 16px;
+}
+
+.badges {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.badges li {
+  background: #fff;
+  border: var(--border);
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-size: .95rem;
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.img-icon-entrega { /* Adicionado para controlar o ícone dentro do badge */
+    width: 20px;
+    height: auto;
+}
+
+
+/* ---------- Typography ---------- */
+.h2 {
+  color: var(--brand-2);
+  font-size: clamp(22px, 3.6vw, 34px);
+  margin: 0 0 12px;
+  font-weight: 600; /* Adicionado para consistência */
+}
+
+.h3 {
+  color: var(--brand-2);
+  font-size: clamp(18px, 2.3vw, 22px);
+  margin: 0 0 8px;
+  font-weight: 600; /* Adicionado para consistência */
+}
+ .h4 { /* Adicionado para consistência */
+  color: var(--brand-2);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  margin: 0;
+}
+ .h5 { /* Adicionado para consistência */
+   color: var(--muted);
+   font-size: 14px;
+   font-weight: 400;
+   margin: 0;
+ }
+
+
+.list {
+  padding-left: 18px;
+}
+
+.kpi h3 {
+  color: var(--muted);
+  font-size: 1rem;
+  margin: 0 0 6px;
+}
+
+.kpi p {
+  font-size: 1.15rem;
+  margin: 0;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  appearance: none;
+  background: #fff;
+  color: var(--brand-2);
+  border: 1px solid rgba(21, 35, 40, .12);
+  border-radius: 999px;
+  padding: 10px 16px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  text-decoration: none !important;
+  transition: transform .06s ease, box-shadow .2s ease, background .2s ease;
+  display: inline-flex; /* Adicionado para alinhar conteúdo */
+  align-items: center; /* Adicionado para alinhar conteúdo */
+  justify-content: center; /* Adicionado para alinhar conteúdo */
+  gap: 8px; /* Adicionado para espaçamento interno */
+  font-size: 1rem; /* Tamanho base */
+}
+
+
+.btn.cta {
+  background: var(--brand);
+  color: #111;
+  border-color: transparent;
+}
+
+.btn.ghost {
+  background: #fff;
+  border: 1px solid rgba(21, 35, 40, .18);
+  color: var(--brand-2);
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 22px rgba(15, 23, 42, .12);
+}
+
+.btn.is-active {
+  background: var(--brand);
+  color: #111;
+  border-color: transparent;
+}
+
+.btn.pkg { /* Estilo específico para botões de pacote/estilo */
+  font-size: 0.9rem;
+  padding: 8px 14px;
+}
+
+.btn.pkg:hover {
+  background: rgba(244, 123, 107, .12); /* Usando a cor brand como base */
+}
+
+/* ---------- Tabs ---------- */
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.tab {
+  background: #fff;
+  color: var(--brand-2);
+  border: 1px solid rgba(21, 35, 40, .18);
+  border-radius: 999px;
+  padding: 8px 12px;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  font-size: 1rem; /* Adicionado */
+  font-weight: 500; /* Adicionado */
+}
+
+.tab.is-active {
+  background: var(--brand);
+  color: #111;
+  border-color: transparent;
+}
+
+.tab-panels > .tab-panel {
+  display: none;
+}
+
+.tab-panels > .tab-panel.is-active {
+  display: block;
+}
+
+/* ---------- Iframe tours ---------- */
+.tour-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.iframe-wrap {
+  position: relative;
+  overflow: hidden;
+  background: #0e1215;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.iframe-wrap::before {
+  content: "";
+  display: block;
+  padding-top: 56.25%; /* Proporção 16:9 */
+}
+
+.iframe-wrap iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+
+/* ==================== GALERIA (Scroll + Lightbox ajustada) ==================== */
+
+.section-galeria {
+  background: #fff;
+  padding: 60px 0;
+}
+ .container-galeria { /* Adicionado para controle */
+    width: var(--container);
+    margin-inline: auto;
+ }
+
+.div-galeria-imgs {
+  position: relative;
+}
+
+/* Setas externas — mais afastadas */
+.gallery-arrow-left,
+.gallery-arrow-right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  z-index: 10;
+  transition: opacity 0.3s ease, transform 0.2s ease;
+}
+
+.gallery-arrow-left {
+  left: -70px;
+} /* afastada para fora */
+
+.gallery-arrow-right {
+  right: -70px;
+} /* afastada para fora */
+
+.image-view { /* Usado no código JS, mas não parece ter estilo aqui */
+  display: none; /* Mantendo como estava no CSS original */
+}
+
+
+/* Scroll da galeria */
+.main-gallery-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.horizontal-scroll-container {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE e Edge */
+}
+
+
+.horizontal-scroll-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+
+.image-gallery-container {
+  display: flex;
+  flex-direction: column; /* Organiza as linhas verticalmente */
+  gap: 16px; /* Espaço entre as linhas */
+  width: max-content; /* Permite que o container cresça horizontalmente */
+}
+
+
+.image-row {
+  display: flex; /* Alinha imagens horizontalmente dentro de cada linha */
+  gap: 16px; /* Espaço entre imagens */
+}
+
+
+.gallery-image {
+  width: 280px; /* Largura fixa para cada imagem */
+  height: 180px; /* Altura fixa para cada imagem */
+  object-fit: cover; /* Garante que a imagem cubra a área sem distorcer */
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.gallery-image:hover {
+  transform: scale(1.04);
+}
+
+/* Modal Lightbox */
+.image-modal {
+  display: none; /* Começa escondido */
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.9);
+  align-items: center;
+  justify-content: center;
+}
+
+.image-modal.active {
+  display: flex; /* Mostra quando a classe 'active' é adicionada */
+}
+
+
+.modal-image-content {
+  max-width: 90%;
+  max-height: 85%;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.close-modal {
+  position: absolute;
+  top: 25px;
+  right: 40px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: 300;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.modal-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  opacity: 0.9;
+  z-index: 1100;
+}
+
+.modal-arrow-left {
+  left: 60px;
+}
+
+.modal-arrow-right {
+  right: 60px;
+}
+
+.modal-arrow:hover {
+  opacity: 1;
+}
+
+
+/* ===================== SECTION FICHA TÉCNICA - estilo atualizado ===================== */
+
+.section-ficha-tecnica {
+  background: var(--cinza-1);
+  padding: 60px 0;
+}
+
+.div-ficha-tecnica {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  max-width: 1160px;
+  margin-inline: auto;
+  padding-inline: 20px;
+}
+
+.div-txt-ficha {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 60%;
+}
+
+.h2-ficha { /* Classe específica para o H2 da ficha */
+  font-family: var(--padrão);
+  font-weight: 600;
+  font-size: clamp(22px, 3.6vw, 34px);
+  color: var(--azul);
+  margin: 0;
+  padding: 0; /* remove qualquer padding residual */
+  line-height: 1.2; /* evita espaçamento vertical extra */
+}
+
+
+.div-txt-h2-ficha { /* Container do H2 */
+  padding: 0;
+  margin: 0 0 16px 0; /* Adiciona margem inferior */
+}
+
+
+.h4-infos,
+.h5-infos {
+  margin: 0; /* remove margens automáticas */
+  line-height: 1.4; /* altura de linha controlada */
+}
+
+/* ---------- Lista de detalhes ---------- */
+.div-detalhes {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.div-detalhe {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #dcdcdc; /* Cor da borda mais sutil */
+  padding-bottom: 12px;
+}
+
+
+.div-detalhe:last-child {
+  border-bottom: none;
+}
+
+.div-icon-txt {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.img-icon-check {
+  width: 22px;
+  height: 22px;
+  background-color: var(--branco-lofteria);
+  border-radius: 50%;
+  padding: 4px;
+  flex-shrink: 0; /* Impede que o ícone encolha */
+}
+
+
+.h4-infos {
+  font-family: var(--padrão);
+  font-size: 1rem; /* Tamanho ajustado */
+  color: var(--azul);
+  font-weight: 600; /* Peso ajustado */
+}
+
+
+.h5-infos {
+  font-family: var(--padrão);
+  font-size: 1rem; /* Tamanho ajustado */
+  color: var(--muted); /* Cor ajustada */
+  font-weight: 400;
+  text-align: right;
+}
+
+
+/* ---------- Imagem lateral ---------- */
+.div-img-ficha {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Centraliza a imagem verticalmente */
+  width: 35%;
+}
+
+
+.img-ficha-tecnica {
+  width: 100%;
+  max-width: 291px; /* Limita a largura máxima da imagem */
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Estilos duplicados removidos ou ajustados */
+.img-icon-check.check-price {
+  background-color: var(--azul);
+  align-self: center; /* Já estava alinhado pelo flex */
+}
+
+
+
+/* ===================== SECTION PRICE - estilo atualizado ===================== */
+
+.section-price {
+  background: var(--brand-2); /* mesmo azul escuro do tema */
+  padding: 60px 0;
+  color: #fff;
+}
+
+.section-price .container {
+  max-width: 1160px;
+  margin-inline: auto;
+  padding-inline: 20px;
+}
+
+.section-price h2.h2-preco { /* Selecionando especificamente o h2 desta seção */
+  color: var(--bg); /* Cor clara para contraste */
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+
+/* ---------- Layout de colunas ---------- */
+.div-tabelas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+/* ---------- Cards individuais ---------- */
+/* Usando seletores de ID para manter a estrutura original */
+#price-1, #price-2, #price-3, .price-4 { 
+  background: var(--bg); /* Fundo claro */
+  color: var(--text); /* Texto escuro padrão */
+  border-radius: 14px;
+  padding: 28px 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, .08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  transition: transform .2s ease, box-shadow .3s ease;
+}
+
+#price-3 { /* Estilo específico para o 'mais escolhido' */
+   background: #fff; 
+}
+
+#price-1:hover, #price-2:hover, #price-3:hover, .price-4:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, .12);
+}
+
+/* ---------- Etiquetas superiores ---------- */
+.div-txt-h6-price {
+  border-radius: 999px;
+  padding: 4px 14px;
+  margin-bottom: 12px; /* Aumenta margem */
+  font-size: 13px;
+  color: #fff; /* Texto sempre branco */
+  text-transform: lowercase;
+  font-weight: 500;
+  display: inline-block; /* Garante que o fundo se ajuste ao texto */
+}
+ .h6-price { /* Estilo para o texto dentro da etiqueta */
+    color: inherit; /* Herda a cor do pai (branco) */
+    font-size: inherit;
+    font-weight: inherit;
+    margin: 0;
+ }
+
+#price-1 .div-txt-h6-price { background: var(--muted); }
+#price-2 .div-txt-h6-price { background: var(--muted); } /* Exemplo, ajuste cores se necessário */
+#price-3 .div-txt-h6-price { background: var(--brand); }
+.price-4 .div-txt-h6-price { background: var(--brand-2); }
+
+
+/* ---------- Títulos e preços ---------- */
+ .h5-price { /* Nome do pacote */
+   color: var(--brand-2);
+   font-size: 1.1rem; /* Aumenta um pouco */
+   font-weight: 700; /* Mais destaque */
+   text-align: center;
+   margin-bottom: 8px;
+ }
+
+ .h5-a-partir {
+   color: var(--muted);
+   font-size: 0.9rem;
+   font-weight: 500;
+   text-align: center;
+   margin-bottom: 2px; /* Reduz margem */
+ }
+
+ .h3-price { /* Valor do preço */
+   color: var(--brand-2);
+   font-size: 1.8rem; /* Aumenta */
+   font-weight: 700; /* Mais destaque */
+   text-align: center;
+   margin-bottom: 24px; /* Aumenta margem */
+ }
+
+
+/* ---------- Características ---------- */
+.div-caract-price {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* Reduz espaçamento entre itens */
+  margin-bottom: 24px; /* Aumenta margem inferior */
+  width: 100%; /* Ocupa toda a largura */
+  align-items: flex-start; /* Alinha itens à esquerda */
+}
+
+
+.div-icon-txt-price {
+  display: flex;
+  align-items: center; /* Alinha ícone e texto verticalmente */
+  gap: 10px; /* Espaço entre ícone e texto */
+}
+
+
+.div-icon-txt-price .img-icon-check { /* Seleciona especificamente o ícone dentro desta seção */
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  background-color: var(--brand); /* Cor do ícone */
+  border-radius: 50%;
+  padding: 3px;
+}
+
+
+ .h4-price { /* Texto das características */
+   color: var(--muted); /* Cor mais suave */
+   font-size: 0.95rem; /* Tamanho ajustado */
+   font-weight: 400;
+   line-height: 1.5; /* Melhora leitura */
+   margin: 0; /* Remove margem padrão */
+ }
+
+
+/* ---------- Botão ---------- */
+.bt-price { /* Botão dentro dos cards de preço */
+  background: var(--brand);
+  color: #111; /* Cor do texto no botão */
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 12px 24px; /* Aumenta padding */
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background .3s ease, transform .2s ease;
+  width: 100%; /* Ocupa toda a largura */
+  margin-top: auto; /* Empurra para o final do card */
+}
+
+
+.bt-price:hover {
+  background: #f78e7e; /* Cor hover ajustada */
+  transform: translateY(-2px);
+}
+
+.txt-bt-agenda { /* Texto dentro do botão */
+   color: inherit; /* Herda a cor do botão */
+   font-weight: inherit;
+   text-decoration: none;
+}
+
+
+/* ---------- Ícones ---------- */
+.img-icon-seta {
+  width: 16px;
+  transition: transform .2s ease;
+}
+
+.bt-price:hover .img-icon-seta {
+  transform: translateX(3px);
+}
+
+
+/* ===================== SECTION FAQ - estilo unificado ===================== */
+.section-faq {
+  background: var(--cinza-1);
+  padding: 60px 0; /* garante espaçamento no topo e embaixo */
+}
+
+.div-faq {
+  max-width: 1160px;
+  margin-inline: auto;
+  padding-inline: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Título */
+.section-faq .h2 { /* Seleciona o h2 dentro da seção faq */
+  font-family: var(--padrão);
+  font-weight: 600;
+  font-size: clamp(22px, 3.6vw, 34px);
+  color: var(--azul);
+  margin: 0;
+  text-align: center; /* Centraliza o título */
+  margin-bottom: 16px; /* Adiciona espaço abaixo do título */
+}
+
+
+/* Accordion (substitui o estilo inline anterior) */
+.custom-accordion {
+  position: relative;
+  background-color: #D9D9D9;
+  color: #152328;
+  cursor: pointer;
+  padding: 18px 45px 18px 25px; /* Aumenta padding direito para ícone */
+  width: 100%;
+  text-align: left;
+  border: none;
+  border-radius: 999px; /* Bordas arredondadas */
+  outline: none;
+  font-size: 1.1rem; /* Aumenta um pouco */
+  font-family: var(--padrão);
+  font-weight: 500; /* Levemente mais pesado */
+  transition: background-color 0.3s ease;
+  margin-bottom: 12px; /* Espaço entre botões */
+}
+
+
+.custom-accordion:hover,
+.custom-accordion.active {
+  background-color: #ececec; /* Cor de hover mais suave */
+}
+
+
+.custom-panel {
+  padding: 10px 25px 20px 25px; /* Padding interno */
+  max-height: 0;
+  overflow: hidden;
+  font-size: 1rem; /* Tamanho do texto da resposta */
+  color: var(--muted); /* Cor mais suave */
+  font-family: var(--padrão);
+  line-height: 1.7; /* Melhora legibilidade */
+  transition: max-height 0.3s ease-out, padding 0.3s ease-out; /* Anima o padding também */
+}
+ .custom-panel p { /* Garante que não haja margem extra no parágrafo */
+     margin: 0;
+ }
+
+.custom-accordion::after {
+  content: '+'; /* Usa '+' e '-' */
+  font-size: 1.5rem; /* Tamanho do ícone */
+  color: var(--muted); /* Cor do ícone */
+  position: absolute;
+  top: 50%;
+  right: 25px; /* Posição do ícone */
+  transform: translateY(-50%);
+  font-weight: 300; /* Ícone mais leve */
+  transition: transform 0.3s ease; /* Anima a rotação */
+}
+
+
+.custom-accordion.active::after {
+  content: "–"; /* Usa caractere de menos */
+  transform: translateY(-50%) rotate(180deg); /* Rotação sutil (opcional) */
+}
+
+
+
+/* ===================== FOOTER - layout padronizado ===================== */
+.footer {
+  background: var(--cinza-1);
+  padding: 60px 0 30px 0; /* Padding ajustado */
+  color: var(--azul);
+}
+
+.div-footer {
+  max-width: 1160px;
+  margin-inline: auto;
+  padding-inline: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Alinha itens ao topo */
+  gap: 40px;
+  flex-wrap: wrap; /* Permite quebrar linha em telas menores */
+  margin-bottom: 30px; /* Espaço antes do copyright */
+}
+
+
+/* ---------- Logo ---------- */
+.div-logo img.logo { /* Seleciona especificamente a imagem do logo */
+  width: 120px; /* Tamanho ajustado */
+  height: auto;
+  display: block;
+}
+
+
+/* ---------- Bloco Fale com o time ---------- */
+.div-fale-com-vendas {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Alinha à esquerda */
+  gap: 10px;
+}
+
+.h5-footer { /* Estilo geral para textos h5 no footer */
+  font-family: var(--padrão);
+  font-weight: 500; /* Peso ajustado */
+  color: var(--muted); /* Cor mais suave */
+  font-size: 0.95rem; /* Tamanho ajustado */
+  margin: 0;
+  line-height: 1.5; /* Melhora leitura */
+}
+.h5-footer.h5 { /* Reset redundante, pode remover se não houver conflito */
+   font-weight: 600;
+   color: var(--azul);
+}
+
+
+.icon-txt-footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.img-icon-whats { /* Ícone do WhatsApp */
+    width: 18px;
+    height: 18px;
+}
+
+.h4-footer { /* Telefone e Endereço */
+  font-family: var(--padrão);
+  font-weight: 500; /* Peso ajustado */
+  color: var(--azul); /* Cor principal */
+  font-size: 1rem; /* Tamanho ajustado */
+  margin: 0;
+}
+
+
+/* ---------- Social + Endereço (Removido Bloco Social, integrado) ---------- */
+/* Se precisar de ícones sociais, podem ser adicionados aqui */
+
+/* ---------- Copyright ---------- */
+.div-copyright {
+  margin-top: 30px; /* Espaço ajustado */
+  border-top: 1px solid #e0e0e0; /* Cor da linha */
+  padding-top: 20px; /* Espaço ajustado */
+  text-align: center;
+}
+
+.h5-copyright {
+  font-family: var(--padrão);
+  font-weight: 400; /* Peso mais leve */
+  color: var(--muted); /* Cor suave */
+  font-size: 0.85rem; /* Tamanho menor */
+  margin: 0;
+}
+
+.h5-copyright a.link { /* Link da Política de Privacidade */
+  color: var(--muted);
+  text-decoration: underline; /* Adiciona sublinhado */
+}
+ .h5-copyright a.link:hover {
+     color: var(--azul); /* Cor ao passar o mouse */
+ }
+
+
+/* ---------- Map embed (já definido) ---------- */
+
+/* ---------- Footer + Back to Top ---------- */
+.site-footer { /* Provavelmente não usado neste layout, mas mantido */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 0;
+  border-top: var(--border);
+  color: var(--muted);
+}
+
+.back-to-top {
+  position: fixed;
+  right: 20px; /* Ajuste de posição */
+  bottom: 20px; /* Ajuste de posição */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease; /* Transição suave */
+  z-index: 100; /* Garante que fique acima de outros elementos */
+}
+
+
+.back-to-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+ /* Estilo do botão Back to Top (requer um elemento com a classe .bt-back-top) */
+ .bt-back-top {
+     background-color: var(--brand);
+     color: #fff;
+     width: 45px;
+     height: 45px;
+     border-radius: 50%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     text-decoration: none;
+     box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+     /* Adicionar um ícone de seta para cima aqui (SVG ou FontAwesome) */
+ }
+  .bt-back-top::before { /* Exemplo com caractere unicode */
+      content: '↑';
+      font-size: 1.5rem;
+      line-height: 1;
+  }
+  .bt-back-top:hover {
+      background-color: #e06a5a; /* Cor brand mais escura no hover */
+  }
+
+
+/* ====== PLANTAS - estilo Tour 360 ====== */
+.section-plantas {
+  background: var(--bg);
+  padding: 60px 0;
+}
+
+.plantas-grid {
+  display: grid;
+  grid-template-columns: 1fr 400px; /* Coluna direita mais estreita */
+  align-items: flex-start; /* Alinha ao topo */
+  gap: 40px;
+}
+
+
+.plantas-left {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Aumenta espaço entre elementos */
+}
+
+
+.planta-imagem-wrap {
+  display: flex; /* Mantém flex */
+  justify-content: center; /* Centraliza a imagem se menor */
+  align-items: center; /* Centraliza verticalmente */
+  background-color: #fff; /* Fundo branco para a imagem */
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px; /* Espaçamento interno */
+  overflow: hidden; /* Garante que a imagem não vaze */
+}
+ .planta-imagem-wrap img { /* Estilo para a imagem da planta */
+     max-width: 100%;
+     height: auto;
+     object-fit: contain; /* Mostra a imagem inteira */
+     max-height: 400px; /* Limita altura máxima */
+ }
+
+
+/* Card lateral */
+.planta-card {
+  align-self: flex-start; /* Alinha ao topo da grid */
+  background: #fff;
+  border: 1px solid rgba(21, 35, 40, .1);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .06);
+}
+
+.planta-card .h3 {
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.planta-disponibilidade {
+  display: inline-flex; /* Para ficar lado a lado com o texto */
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 14px;
+  color: var(--brand);
+  font-weight: 600;
+  background-color: rgba(244, 123, 107, 0.1); /* Fundo suave */
+  padding: 4px 8px; /* Padding interno */
+  border-radius: 4px; /* Borda arredondada */
+  font-size: 0.9rem; /* Tamanho ajustado */
+}
+ .planta-disponibilidade span { /* Estilo para o emoji */
+     font-size: 1rem;
+ }
+
+
+.btn-agendar {
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 20px; /* Aumenta espaço */
+  margin-top: 10px; /* Adiciona espaço acima */
+}
+
+
+.planta-card .h4 {
+  font-weight: 700;
+  color: var(--brand-2);
+  margin: 20px 0 8px 0; /* Ajusta margens */
+  font-size: 1rem; /* Tamanho padrão */
+}
+
+
+.planta-desc {
+  font-size: 0.95rem; /* Tamanho ajustado */
+  color: var(--muted);
+  line-height: 1.6; /* Melhora leitura */
+}
+
+
+
+/* === SECTION LOCAL (Combinado do demo + ams) === */
+.section-local {
+  background-color: var(--cinza-1);
+  padding: 60px 0;
+}
+
+.div-local {
+  display: flex; /* Flexbox para layout lado a lado */
+  justify-content: space-between; /* Espaço entre texto e mapa */
+  align-items: flex-start; /* Alinha ao topo */
+  gap: 40px; /* Espaçamento entre colunas */
+  max-width: 1160px; /* Largura máxima */
+  margin-inline: auto; /* Centraliza */
+  padding-inline: 20px; /* Padding lateral */
+}
+
+
+.div-txt-local {
+  display: flex;
+  flex-direction: column;
+  gap: 24px; /* Espaço entre elementos de texto */
+  width: 55%; /* Largura da coluna de texto */
+  flex-shrink: 0; /* Impede que encolha demais */
+}
+
+
+.div-txt-local .h2 { /* Título da seção */
+  font-family: var(--padrão);
+  font-weight: 600;
+  font-size: clamp(22px, 3.6vw, 34px);
+  color: var(--azul);
+  margin: 0;
+  margin-bottom: 8px; /* Espaço abaixo do título */
+}
+
+
+.div-txt-local .h4 { /* Descrição principal */
+  font-family: var(--padrão);
+  font-size: 1rem; /* Tamanho ajustado */
+  font-weight: 400;
+  color: var(--muted); /* Cor mais suave */
+  line-height: 1.7; /* Melhora leitura */
+  margin: 0;
+}
+
+
+.div-icon-txt-local { /* Container para ícone + texto (pontos de interesse) */
+  display: flex;
+  align-items: center; /* Alinha verticalmente */
+  gap: 12px; /* Espaço entre ícone e texto */
+}
+
+
+.img-icon-local { /* Ícones */
+  background-color: var(--branco-lofteria);
+  border-radius: 6px;
+  padding: 6px; /* Padding ajustado */
+  width: 32px; /* Tamanho ajustado */
+  height: 32px; /* Tamanho ajustado */
+  flex-shrink: 0; /* Impede que o ícone encolha */
+}
+
+
+.h4-local { /* Texto dos pontos de interesse */
+  color: var(--azul);
+  font-size: 0.95rem; /* Tamanho ajustado */
+  font-weight: 500; /* Levemente mais pesado */
+  margin: 0; /* Remove margem */
+}
+
+
+.div-maps { /* Container do mapa */
+  width: 40%; /* Largura da coluna do mapa */
+  flex-shrink: 0;
+}
+
+
+.map-embed { /* Estilo do container do iframe */
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #e7e7e7;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  position: relative; /* Necessário para aspect ratio */
+  padding-top: 75%; /* Proporção 4:3 (ajuste se necessário, ex: 56.25% para 16:9) */
+}
+
+
+.map-embed iframe { /* Estilo do iframe */
+  position: absolute; /* Para preencher o container com padding-top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+
+
+/* ========================================================================= */
+/* MEDIA QUERIES (RESPONSIVO)                     */
+/* ========================================================================= */
+
+/* Tablet / Telas até 1100px */
+@media (max-width: 1100px) {
+   /* Galeria */
+   .gallery-image {
+        width: 240px; /* Reduz tamanho */
+        height: 160px;
+   }
+   .gallery-arrow-left { left: -50px; }
+   .gallery-arrow-right { right: -50px; }
+}
+
+/* Tablet / Telas até 991px */
+@media (max-width: 991px) {
+  .hero.hero-cover {
+     padding: 30px 50px; 
+  }
+  .section-local { 
+     padding: 30px 50px; 
+  }
+
+  /* Galeria */
+  .gallery-arrow-left { left: -30px; }
+  .gallery-arrow-right { right: -30px; }
+
+  /* Segunda linha da galeria oculta */
+  .image-row-2 { display: none !important; }
+  .image-view { display: block; } /* Mostra imagens que estavam escondidas */
+
+  /* Ajuste de tamanho da galeria */
+  .gallery-image {
+    width: 200px;
+    height: 140px;
+  }
+
+  /* Ficha Técnica */
+  .div-ficha-tecnica {
+    flex-direction: column-reverse; /* Imagem acima do texto */
+    gap: 32px;
+  }
+  .div-txt-ficha, .div-img-ficha { width: 100%; }
+  .h4-infos, .h5-infos { font-size: 1rem; } /* Aumenta um pouco */
+   .div-detalhe { flex-direction: column; align-items: flex-start; gap: 5px; text-align: left; }
+   .h5-infos { text-align: left;}
+
+  /* Localização */
+  .div-local {
+    flex-direction: column;
+    gap: 32px;
+  }
+  .div-txt-local, .div-maps { width: 100%; }
+   .map-embed { padding-top: 60%; } /* Ajusta proporção */
+
+   /* Plantas */
+    .plantas-grid { grid-template-columns: 1fr; } /* Coluna única */
+     .planta-card { width: 100%; margin-top: 24px; align-self: stretch; } /* Ocupa largura e reseta alinhamento */
+}
+
+
+/* Tablet Horizontal / Telas até 880px */
+@media (max-width: 880px) {
+   .hero.hero-cover { padding: 30px 40px; }
+   .section-local { padding: 30px 40px; }
+    .grid-2, .hero-grid { grid-template-columns: 1fr; } /* Garante coluna única */
+}
+
+/* Tablet Vertical / Telas até 768px */
+@media (max-width: 768px) {
+    .hero.hero-cover { padding: 35px 45px; }
+    .section-local { padding: 35px 45px; }
+
+    /* Tabela de Preços */
+    .div-tabelas { grid-template-columns: 1fr; gap: 25px; } /* Coluna única e mais espaço */
+}
+
+/* Celular / Telas até 767px */
+@media (max-width: 767px) {
+   .hero.hero-cover { padding: 35px 40px; }
+   .section-local { padding: 35px 40px; }
+
+   /* FAQ */
+   .custom-accordion { font-size: 1rem; padding: 15px 40px 15px 20px; }
+   .custom-panel { font-size: 0.95rem; }
+    .custom-accordion::after { right: 20px; }
+
+   /* Footer */
+   .div-footer { flex-direction: column; align-items: center; text-align: center; gap: 25px; }
+    .div-fale-com-vendas, .div-social-media { align-items: center; text-align: center; }
+     .div-icons-social-media { justify-content: center; }
+}
+
+
+/* Celular Grande / Telas até 640px */
+@media (max-width: 640px) {
+    .hero.hero-cover { padding: 30px 40px; }
+    .section-local { padding: 30px 40px; }
+    .nav { display: none; } /* Esconde navegação */
+    .cards-3, .cards-4 { grid-template-columns: 1fr; } /* Garante coluna única */
+}
+
+/* Celular Médio / Telas até 600px */
+@media (max-width: 600px) {
+    .hero.hero-cover { padding: 25px 30px; }
+    .section-local { padding: 25px 30px; }
+
+   /* Galeria */
+   .gallery-arrow-left, .gallery-arrow-right { display: none; } /* Esconde setas */
+    .gallery-image { width: 80vw; height: auto; } /* Imagem ocupa mais largura */
+     .horizontal-scroll-container { gap: 10px; } /* Reduz espaço */
+}
+
+/* Celular Pequeno / Telas até 420px */
+@media (max-width: 420px) {
+    /* Ajustes finos se necessário */
+}
