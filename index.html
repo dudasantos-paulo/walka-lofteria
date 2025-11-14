@@ -4,12 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário Walk'a - Configuração de Hotsite</title>
-    
     <script src="https://cdn.tailwindcss.com"></script>
-    
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Paleta Walk'a */
+        .color-violeta-principal { background-color: #9500C3; }
+        .text-violeta-principal { color: #9500C3; }
+        .border-violeta-principal { border-color: #9500C3; }
+        .color-ciano-destaque { background-color: #10E6E1; }
+        .hover-ciano-destaque:hover { background-color: #0bd1cb; }
+        .color-vermelho-indiano { background-color: #E5615C; }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #6E00B0; 
+            padding: 2rem;
+            min-height: 100vh;
+            background-image: radial-gradient(circle at 100% 100%, rgba(255,255,255,.15) 1%, transparent 12%), 
+                              radial-gradient(circle at 0% 0%, rgba(255,255,255,.15) 1%, transparent 12%);
+        }
+
+        /* Efeito Liquid Glass */
+        .glass-container {
+            background-color: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 12px 48px 0 rgba(0, 0, 0, 0.3);
+        }
+        
+        .glass-block {
+            background-color: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(149, 0, 195, 0.1);
+        }
+
+        .form-input {
+            border-radius: 12px;
+            padding: 12px 16px;
+            border: 1px solid #d1d5db;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            background-color: #ffffff;
+        }
+        .form-input:focus {
+            border-color: #9500C3;
+            box-shadow: 0 0 0 4px rgba(149, 0, 195, 0.3);
+            background-color: #ffffff;
+            outline: none; /* Adicionado para remover o outline padrão */
+        }
+        
+        .btn-add {
+            transition: background-color 0.2s;
+        }
+
+        .header-text {
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+    </style>
 </head>
 <body class="p-4 sm:p-8">
 
@@ -60,8 +110,8 @@
                         <input type="text" name="corPrimaria" id="corPrimaria" placeholder="Ex: #F47B6B" class="form-input w-full">
                     </div>
                     <div>
-                        <label for="logoMarcaUrl" class="block text-sm font-medium text-gray-700 mb-1">Logo da marca (URL)</label>
-                        <input type="url" name="logoMarcaUrl" id="logoMarcaUrl" placeholder="Insira a URL do logo (JPG, PNG, SVG)" class="form-input w-full">
+                        <label for="logoMarcaNomeArquivo" class="block text-sm font-medium text-gray-700 mb-1">Nome do arquivo do Logo</label>
+                        <input type="text" name="logoMarcaNomeArquivo" id="logoMarcaNomeArquivo" placeholder="Ex: logo-ams.png" class="form-input w-full">
                     </div>
                 </div>
             </div>
@@ -81,8 +131,8 @@
                         <textarea name="heroSubheadline" id="heroSubheadline" rows="3" placeholder="Ex: Formato inédito para morar ou investir..." class="form-input w-full"></textarea>
                     </div>
                     <div class="md:col-span-2">
-                        <label for="heroImagemUrl" class="block text-sm font-medium text-gray-700 mb-1">Imagem principal do Hero (URL)</label>
-                        <input type="url" name="heroImagemUrl" id="heroImagemUrl" placeholder="Insira a URL da imagem de fundo (1920x1080)" class="form-input w-full">
+                        <label for="heroImagemNomeArquivo" class="block text-sm font-medium text-gray-700 mb-1">Nome do arquivo da Imagem do Hero</label>
+                        <input type="text" name="heroImagemNomeArquivo" id="heroImagemNomeArquivo" placeholder="Ex: hero-bg.jpg" class="form-input w-full">
                     </div>
                     <div>
                         <label for="entregaPrevista" class="block text-sm font-medium text-gray-700 mb-1">Entrega prevista</label>
@@ -129,8 +179,8 @@
                     4. Galeria
                 </h2>
                 
-                <label for="galeriaImagensUrls" class="block text-sm font-medium text-gray-700 mb-1">Imagens da galeria (URLs, separadas por vírgula)</label>
-                <textarea name="galeriaImagensUrls" id="galeriaImagensUrls" rows="5" placeholder="Insira as URLs das imagens de alta resolução (separadas por vírgula)" class="form-input w-full"></textarea>
+                <label for="galeriaImagensNomes" class="block text-sm font-medium text-gray-700 mb-1">Nomes dos arquivos da galeria (separados por vírgula)</label>
+                <textarea name="galeriaImagensNomes" id="galeriaImagensNomes" rows="5" placeholder="Ex: galeria-01.jpg, galeria-02.jpg, fachada.png" class="form-input w-full"></textarea>
             </div>
 
             <div class="p-6 border-violeta-principal/30 rounded-2xl glass-block">
@@ -213,8 +263,8 @@
                         <input type="text" name="seoTitulo" id="seoTitulo" placeholder="Ex: AMS Córrego Grande — Walk’a" class="form-input w-full">
                     </div>
                     <div>
-                        <label for="seoImagemUrl" class="block text-sm font-medium text-gray-700 mb-1">Imagem SEO (Preview URL)</label>
-                        <input type="url" name="seoImagemUrl" id="seoImagemUrl" placeholder="URL da imagem de preview (1200x1200)" class="form-input w-full">
+                        <label for="seoImagemNomeArquivo" class="block text-sm font-medium text-gray-700 mb-1">Nome do arquivo da Imagem SEO</label>
+                        <input type="text" name="seoImagemNomeArquivo" id="seoImagemNomeArquivo" placeholder="Ex: preview-social.jpg" class="form-input w-full">
                     </div>
                     <div class="md:col-span-2">
                         <label for="seoDescricao" class="block text-sm font-medium text-gray-700 mb-1">Descrição SEO (meta description)</label>
@@ -238,6 +288,209 @@
         </form>
     </div>
 
-    <script src="js/script.js" defer></script>
+    <script>
+        // Função utilitária para criar o botão de remover
+        const createRemoveButton = (targetId) => `
+            <button type="button" data-target="${targetId}" class="remove-btn text-sm text-white font-semibold rounded-full bg-red-500 hover:bg-red-600 p-1 px-3 mt-2 float-right">
+                Remover
+            </button>
+        `;
+        
+        // Remove o bloco pai quando o botão de remoção é clicado
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('remove-btn')) {
+                const targetId = e.target.getAttribute('data-target');
+                document.getElementById(targetId)?.remove();
+            }
+        });
+
+        // =================================================================
+        // FUNÇÕES DINÂMICAS: 5. Plantas
+        // =================================================================
+        let plantaIndex = 0;
+        const plantasContainer = document.getElementById('plantas-container');
+        const addPlantaBtn = document.getElementById('addPlantaBtn');
+
+        const createPlantaBlock = (index) => {
+            const id = `planta-${index}`;
+            return `
+                <div id="${id}" class="p-4 border border-violeta-principal/50 rounded-xl bg-white/80 relative">
+                    ${createRemoveButton(id)}
+                    <h4 class="font-semibold text-violeta-principal mb-3">Planta ${index + 1}</h4>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-medium text-gray-700">Título / Nome</label>
+                            <input type="text" name="planta[${index}][titulo]" placeholder="Ex: Studio ECO 28m²" class="form-input w-full" required>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-gray-700">Estilo</label>
+                            <select name="planta[${index}][estilo]" class="form-input w-full">
+                                <option value="ECO">ECO</option>
+                                <option value="SLIM">SLIM</option>
+                                <option value="URBAN">URBAN</option>
+                                <option value="OUTRO">Outro</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-gray-700">Pacote</label>
+                            <select name="planta[${index}][pacote]" class="form-input w-full">
+                                <option value="STANDARD">STANDARD</option>
+                                <option value="BASIC">BASIC</option>
+                                <option value="ESSENTIAL">ESSENTIAL</option>
+                                <option value="DESIGN">DESIGN</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-gray-700">Metragem</label>
+                            <input type="text" name="planta[${index}][metragem]" placeholder="Ex: 28m²" class="form-input w-full">
+                        </div>
+                        <div class="md:col-span-2">
+                            <label class="block text-xs font-medium text-gray-700">Nome do arquivo da Imagem da Planta</label>
+                            <input type="text" name="planta[${index}][imagemNomeArquivo]" placeholder="Ex: planta-eco-basic.jpg" class="form-input w-full" required>
+                        </div>
+                    </div>
+                </div>
+            `;
+        };
+
+        const addPlanta = () => {
+            plantasContainer.insertAdjacentHTML('beforeend', createPlantaBlock(plantaIndex));
+            plantaIndex++;
+        };
+        addPlantaBtn.addEventListener('click', addPlanta);
+        addPlanta(); // Adiciona 1 planta inicial
+
+        // =================================================================
+        // FUNÇÕES DINÂMICAS: 6. Tours 360
+        // =================================================================
+        let tourIndex = 0;
+        const toursContainer = document.getElementById('tours-container');
+        const addTourBtn = document.getElementById('addTourBtn');
+
+        const createTourBlock = (index) => {
+            const id = `tour-${index}`;
+            return `
+                <div id="${id}" class="p-4 border border-violeta-principal/50 rounded-xl bg-white/80 relative">
+                    ${createRemoveButton(id)}
+                    <h4 class="font-semibold text-violeta-principal mb-3">Tour ${index + 1}</h4>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-medium text-gray-700">Rótulo do Tour</label>
+                            <input type="text" name="tour[${index}][rotulo]" placeholder="Ex: ECO Basic (Tour 360)" class="form-input w-full" required>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-gray-700">URL do Iframe</label>
+                            <input type="url" name="tour[${index}][url]" placeholder="URL completa do meutour360.com" class="form-input w-full" required>
+                        </div>
+                    </div>
+                </div>
+            `;
+        };
+
+        const addTour = () => {
+            toursContainer.insertAdjacentHTML('beforeend', createTourBlock(tourIndex));
+            tourIndex++;
+        };
+        addTourBtn.addEventListener('click', addTour);
+        addTour(); // Adiciona 1 tour inicial
+        
+        // =================================================================
+        // FUNÇÕES DINÂMICAS: 8. Preços / Pacotes
+        // =================================================================
+        let precoIndex = 0;
+        const precosContainer = document.getElementById('precos-container');
+        const addPrecoBtn = document.getElementById('addPrecoBtn');
+
+        const createPrecoBlock = (index) => {
+            const id = `preco-${index}`;
+            return `
+                <div id="${id}" class="pacote-item p-4 border border-violeta-principal/50 rounded-xl bg-white/80 relative">
+                    ${createRemoveButton(id)}
+                    <h3 class="text-lg font-bold mb-3 text-violeta-principal">Pacote ${index + 1}</h3>
+                    <div class="space-y-3">
+                        <div><label class="block text-xs font-medium text-gray-700">Título</label><input type="text" name="preco[${index}][titulo]" placeholder="Studio Standard" class="form-input w-full" required></div>
+                        <div><label class="block text-xs font-medium text-gray-700">Preço 'A partir de'</label><input type="text" name="preco[${index}][preco]" placeholder="R$ 300.000,00" class="form-input w-full" required></div>
+                        <div><label class="block text-xs font-medium text-gray-700">Destaque (Etiqueta)</label><input type="text" name="preco[${index}][destaque]" placeholder="melhor custo benefício" class="form-input w-full"></div>
+                        <div><label class="block text-xs font-medium text-gray-700">Características (1 por linha)</label><textarea name="preco[${index}][caracteristicas]" rows="3" placeholder="Ex:&#10;Projeto funcional e bem distribuído;&#10;Sem mobília inclusa;" class="form-input w-full" required></textarea></div>
+                        <div><label class="block text-xs font-medium text-gray-700">Link Botão CTA</label><input type="url" name="preco[${index}][linkCta]" placeholder="Link do WhatsApp" class="form-input w-full" required></div>
+                    </div>
+                </div>
+            `;
+        };
+
+        const addPreco = () => {
+            precosContainer.insertAdjacentHTML('beforeend', createPrecoBlock(precoIndex));
+            precoIndex++;
+        };
+        addPrecoBtn.addEventListener('click', addPreco);
+        addPreco(); // Adiciona 1 pacote inicial
+        
+        // =================================================================
+        // FUNÇÕES DINÂMICAS: 9. Perguntas Frequentes (FAQ)
+        // =================================================================
+        let faqIndex = 0;
+        const faqContainer = document.getElementById('faq-container');
+        const addFaqBtn = document.getElementById('addFaqBtn');
+
+        const createFaqBlock = (index) => {
+            const id = `faq-${index}`;
+            return `
+                <div id="${id}" class="p-3 border border-violeta-principal/50 rounded-xl bg-white/80 relative">
+                    ${createRemoveButton(id)}
+                    <h4 class="font-semibold text-violeta-principal mb-3">FAQ ${index + 1}</h4>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Pergunta</label>
+                    <input type="text" name="faq[${index}][pergunta]" placeholder="Ex: Qual o endereço do empreendimento?" class="form-input w-full mb-2" required>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Resposta</label>
+                    <textarea name="faq[${index}][resposta]" rows="2" placeholder="Ex: O AMS Córrego Grande está localizado na Rua Vera Linhares..." class="form-input w-full" required></textarea>
+                </div>
+            `;
+        };
+
+        const addFaq = () => {
+            faqContainer.insertAdjacentHTML('beforeend', createFaqBlock(faqIndex));
+            faqIndex++;
+        };
+        addFaqBtn.addEventListener('click', addFaq);
+        addFaq(); // Adiciona 1 FAQ inicial
+
+        // =================================================================
+        // FUNÇÃO PRINCIPAL DE SUBMISSÃO
+        // =================================================================
+        document.getElementById('walkaForm').addEventListener('submit', function(e) {
+            e.preventDefault(); 
+            
+            const submitButton = e.target.querySelector('button[type="submit"]');
+            const originalText = submitButton.textContent;
+            submitButton.textContent = "Enviando, aguarde...";
+            submitButton.disabled = true;
+
+            const webhookURL = 'https://hooks.zapier.com/hooks/catch/14417228/ur9ljc6/';
+
+            const formData = new FormData(e.target);
+            const data = new URLSearchParams();
+            for (const pair of formData) {
+                data.append(pair[0], pair[1]);
+            }
+            
+            // Usando sendBeacon para enviar os dados
+            const sent = navigator.sendBeacon(webhookURL, data);
+
+            if (sent) {
+                submitButton.textContent = "Dados Enviados com Sucesso!";
+                submitButton.classList.remove('color-ciano-destaque');
+                submitButton.classList.add('color-vermelho-indiano');
+            } else {
+                submitButton.textContent = "Erro ao enviar. Tente novamente.";
+            }
+
+            // Reseta o botão após 3 segundos
+            setTimeout(() => {
+                 submitButton.textContent = originalText;
+                 submitButton.classList.remove('color-vermelho-indiano');
+                 submitButton.classList.add('color-ciano-destaque');
+                 submitButton.disabled = false;
+            }, 3000);
+        });
+    </script>
 </body>
 </html>
